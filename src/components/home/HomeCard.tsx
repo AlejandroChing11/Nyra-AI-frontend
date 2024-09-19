@@ -1,16 +1,13 @@
 "use client"
-
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
-import { Image, FileSpreadsheet, Bone, Stethoscope } from 'lucide-react'
+import { FileSpreadsheet, Bone, Stethoscope } from 'lucide-react'
 
 export function HomeCard() {
-  const [isVisible, setIsVisible] = useState(false)
 
   const reportOptions = [
-    { title: 'Radiografía abdominal', icon: <Image className="mr-2 h-4 w-4" /> },
+    { title: 'Radiografía abdominal', icon: <Stethoscope className="mr-2 h-4 w-4" /> },
     { title: 'Enema opaco', icon: <FileSpreadsheet className="mr-2 h-4 w-4" /> },
     { title: 'Radiografía de hueso', icon: <Bone className="mr-2 h-4 w-4" /> },
     { title: 'Radiografía de tórax', icon: <Stethoscope className="mr-2 h-4 w-4" /> },
