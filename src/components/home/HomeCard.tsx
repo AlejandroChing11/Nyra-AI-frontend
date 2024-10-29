@@ -1,8 +1,8 @@
 "use client"
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import { Button } from "@/components/ui/Button"
 import { FileSpreadsheet, Bone, Stethoscope } from 'lucide-react'
+import { HomeCardButtons } from './HomeCardButtons'
 
 export function HomeCard() {
 
@@ -23,7 +23,7 @@ export function HomeCard() {
             transition={{ duration: 0.5 }}
           >
             <CardTitle className="text-2xl font-bold text-center text-primary">
-              ¡Bienvenido a Camlive!
+              ¡Bienvenido a Nyra AI!
             </CardTitle>
           </motion.div>
         </CardHeader>
@@ -38,20 +38,7 @@ export function HomeCard() {
           </motion.p>
           <div className="grid gap-4">
             {reportOptions.map((option, index) => (
-              <motion.div
-                key={option.title}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + index * 0.1, duration: 0.3 }}
-              >
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal text-white-100 hover:bg-slate-300 hover:text-slate-500 transition-colors duration-200"
-                >
-                  {option.icon}
-                  {option.title}
-                </Button>
-              </motion.div>
+              <HomeCardButtons key={option.title} option={option} index={index} />
             ))}
           </div>
         </CardContent>
