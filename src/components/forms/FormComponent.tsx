@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useDropzone } from 'react-dropzone'
-import { Image } from 'lucide-react'
 import { FORMS } from '@/data/FORMS';
+import { Image as ImageIcon } from 'lucide-react'
+import Image from 'next/image';
 
 interface Props {
   slug: string;
@@ -49,10 +50,16 @@ export function FormComponent({ slug }: Props) {
           >
             <input {...getInputProps()} />
             {image ? (
-              <img src={image} alt="Radiografía" className="max-w-full max-h-full object-contain" />
+              <Image
+                src={image}
+                alt="Radiografía"
+                fill
+                className="max-w-full max-h-full object-contain"
+                sizes="(max-width: 768) 100vw, 33vw"
+              />
             ) : (
               <div className="text-center">
-                <Image className="mx-auto h-12 w-12 text-gray-400" />
+                  <ImageIcon className="mx-auto h-12 w-12 text-gray-400" />
                 <p className="mt-2 text-sm text-gray-600">Arrastra y suelta la imagen de la radiografía aquí, o haz clic para seleccionar</p>
               </div>
             )}
