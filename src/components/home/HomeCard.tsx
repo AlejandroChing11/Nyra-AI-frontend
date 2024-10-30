@@ -3,15 +3,12 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { FileSpreadsheet, Bone, Stethoscope } from 'lucide-react'
 import { HomeCardButtons } from './HomeCardButtons'
+import { FORMS } from '@/data/FORMS'
 
 export function HomeCard() {
 
-  const reportOptions = [
-    { title: 'Radiografía abdominal', icon: <Stethoscope className="mr-2 h-4 w-4" /> },
-    { title: 'Enema opaco', icon: <FileSpreadsheet className="mr-2 h-4 w-4" /> },
-    { title: 'Radiografía de hueso', icon: <Bone className="mr-2 h-4 w-4" /> },
-    { title: 'Radiografía de tórax', icon: <Stethoscope className="mr-2 h-4 w-4" /> },
-  ]
+  //return only title, icon and slug
+  const reportOptions = FORMS.map(({ title, icon, slug }) => ({ title, icon, slug }))
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-cyan-100 to-teal-50 p-4">
