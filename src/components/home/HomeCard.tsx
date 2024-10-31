@@ -10,29 +10,29 @@ export function HomeCard() {
   const reportOptions = FORMS.map(({ title, icon, slug }) => ({ title, icon, slug }))
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-cyan-100 to-teal-50 p-4">
-      <Card className="w-full max-w-md shadow-lg bg-white">
-        <CardHeader className='text-gray-500 font-medium'>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-cyan-100 to-teal-50 p-4 sm:p-8">
+      <Card className="w-full max-w-lg sm:max-w-md shadow-lg bg-white rounded-lg">
+        <CardHeader className="text-gray-600 font-medium">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <CardTitle className="text-2xl font-bold text-center text-primary">
+            <CardTitle className="text-2xl sm:text-3xl font-bold text-center text-primary">
               ¡Bienvenido a Nyra AI!
             </CardTitle>
           </motion.div>
         </CardHeader>
         <CardContent>
           <motion.p
-            className="text-center text-muted-foreground mb-6 text-slate-400"
+            className="text-center text-muted-foreground mb-6 text-sm sm:text-base text-slate-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             ¿Qué deseas reportar hoy?
           </motion.p>
-          <div className="grid gap-4">
+          <div className="flex flex-col gap-4">
             {reportOptions.map((option, index) => (
               <HomeCardButtons key={option.title} option={option} index={index} />
             ))}
