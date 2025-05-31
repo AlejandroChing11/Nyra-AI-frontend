@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import Link from "next/link";
+import { IconMapper } from "../ui/IconMapper";
 
 interface Params {
-  option: { title: string; icon: JSX.Element; slug: string };
+  option: { title: string; iconType: string; slug: string };
   index: number;
 }
 
@@ -21,7 +22,7 @@ export function HomeCardButtons({ option, index }: Params) {
           variant="outline"
           className="w-full flex items-center justify-start gap-2 text-left font-sans text-gray-700 bg-sky-100 hover:bg-cyan-200 hover:text-stone-700 transition-colors duration-200 rounded-lg"
         >
-          {option.icon}
+          <IconMapper iconType={option.iconType} />
           <span className="truncate">{option.title}</span>
         </Button>
       </Link>
